@@ -3,88 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEBNIT | Nebrasaka Institute of Technology</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Metro TV & Appliance | Authorized Electronics & Appliance Repair</title>
+    <meta name="description" content="Factory-authorized electronics specialists for appliance repair, TV repair, and audio service. Serving Nebraska with expert repair for Samsung, GE, LG, Sony, and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #DC2626, #4B5563, #111827, #DC2626);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
 </head>
-<body>
-    <canvas id="grid-canvas"></canvas>
-    <div class="margin-element left"></div>
-    <div class="margin-element right"></div>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
 
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">Nebraska Institute of Technology</div>
-            <nav class="main-nav">
-                <a href="#services">Services</a>
-                <a href="#workshops">Workshops</a>
-                <a href="founder.html">Fou nder</a>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-red-600 font-semibold">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600">About Us</a>
+                <a href="services.html" class="text-gray-600 hover:text-red-600">Services</a>
+                <a href="service-areas.html" class="text-gray-600 hover:text-red-600">Service Areas</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="section-hero">
-            <div class="hero-content">
-                <h1 class="animated-headline">Applied Technology. Mastered.</h1>
-                <p class="fade-in delay-1">An institution dedicated to professional technical services and the advancement of hands-on education.</p>
+        <!-- Hero Section -->
+        <section class="bg-gray-100">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight animated-gradient-text">Nebraska's Authorized Electronics Service Expert</h1>
+                <p class="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">We are an electronics-first company, specializing in the complex systems inside today's advanced home appliances, televisions, and high-fidelity audio equipment.</p>
+                <a href="explore.html" class="mt-8 inline-block bg-red-600 text-white font-bold px-10 py-4 rounded-lg hover:bg-red-700 transition-colors text-lg">
+                    Explore Our Services
+                </a>
             </div>
         </section>
 
-        <section id="services" class="section-content">
-            <div class="container">
-                <h2 class="fade-in-scroll">Professional Services</h2>
-                <div class="services-grid">
-                    <div class="service-card fade-in-scroll">
-                        <h3>Kitchen Appliances</h3>
-                        <p>Complete diagnostics and repair for ovens, stovetops, ranges, microwaves, and dishwashers.</p>
+        <!-- Service Partners Section -->
+        <section class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-900">Our Valued Service Partners</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Our direct partnerships are the foundation of our expert service. We work hand-in-hand with the industry's best to provide you with authorized, high-quality repairs.</p>
+                </div>
+                <div class="mt-12 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                    <!-- Manufacturers -->
+                    <div class="bg-gray-50 rounded-lg p-8 text-center">
+                        <i class="fas fa-cogs text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">Manufacturers</h3>
+                        <p class="mt-2 text-gray-600">We are a factory-authorized service center for most major brands, ensuring we use genuine parts and follow exact repair protocols.</p>
+                        <p class="mt-4 font-semibold text-gray-700">Samsung, LG, GE, Sony, Electrolux & more</p>
                     </div>
-                    <div class="service-card fade-in-scroll delay-1">
-                        <h3>Laundry Appliances</h3>
-                        <p>Expert service for all makes and models of gas and electric washers and dryers.</p>
+                    <!-- Warranty Companies -->
+                    <div class="bg-gray-50 rounded-lg p-8 text-center">
+                        <i class="fas fa-shield-alt text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">Warranty Companies</h3>
+                        <p class="mt-2 text-gray-600">We are the trusted repair provider for leading warranty companies, handling claims efficiently to get your products back up and running.</p>
+                         <p class="mt-4 font-semibold text-gray-700">Assurant, AIG, Asurion & more</p>
                     </div>
-                    <div class="service-card fade-in-scroll delay-2">
-                        <h3>Sealed Systems & Electronics</h3>
-                        <p>Specialized component-level repair for refrigerators, freezers, and A/C unit control systems.</p>
+                    <!-- Local Dealers -->
+                    <div class="bg-gray-50 rounded-lg p-8 text-center">
+                         <i class="fas fa-store text-4xl text-red-600 mb-4"></i>
+                         <h3 class="text-2xl font-bold text-gray-900">Local Dealers</h3>
+                         <p class="mt-2 text-gray-600">We partner with local and national retailers to provide reliable, post-purchase service and support for their customers.</p>
+                         <p class="mt-4 font-semibold text-gray-700">Best Buy, NFM & more</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="workshops" class="section-content section-highlight">
-            <div class="container">
-                <h2 class="fade-in-scroll">Weekend DIY Workshops</h2>
-                <div class="workshop-content fade-in-scroll delay-1">
-                    <p>Our hands-on workshops empower hobbyists and aspiring technicians in our state-of-the-art facility. Learn practical skills from seasoned professionals.</p>
-                    <div class="schedule-info">
-                        <p><strong>Featured Courses:</strong> Introduction to Soldering & Appliance Diagnostics</p>
-                        <p><strong>Schedule:</strong> 2-hour sessions held every other Saturday from 10:00 AM to 12:00 PM, starting October 1st.</p>
+        <!-- Service Area Checker -->
+        <section class="py-20 bg-gray-200/70 backdrop-blur-sm">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-900">Check Your Service Area</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">We service Lincoln, Omaha, and dozens of surrounding communities. Enter your zip code to confirm service.</p>
+                <div class="mt-8 max-w-md mx-auto flex items-center">
+                    <input type="text" id="zipcode-input" placeholder="Enter zip code..." class="w-full px-4 py-3 rounded-l-md border-2 border-gray-300 focus:outline-none focus:border-red-500">
+                    <button id="check-zipcode-btn" class="bg-red-600 text-white font-bold px-6 py-3 rounded-r-md hover:bg-red-700">Check</button>
+                </div>
+                <div id="service-message" class="mt-4 text-lg font-semibold text-center h-8"></div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section id="services-overview" class="py-20 bg-white fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-gray-900">Our Core Repair Services</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Leveraging decades of electronics experience for your home's most essential devices.</p>
+                </div>
+                <div class="mt-12 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                    <!-- Home Appliances Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="flex justify-center items-center space-x-6 text-red-600 mb-6 text-5xl">
+                            <i class="fas fa-snowflake" title="Refrigerator Repair"></i>
+                            <i class="fas fa-shirt" title="Washer & Dryer Repair"></i>
+                            <i class="fas fa-fire-burner" title="Oven & Stove Repair"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Appliance Repair</h3>
+                        <p class="mt-2 text-gray-600">Authorized warranty service for refrigerators, washers, dryers, ovens, and dishwashers from brands like GE, Samsung, and LG.</p>
+                        <a href="services.html" class="mt-4 inline-block text-red-600 font-semibold">Learn More &rarr;</a>
                     </div>
-                    <a href="#" class="cta-button">Request Workshop Information</a>
+                    <!-- Televisions Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <i class="fas fa-tv text-6xl text-red-600 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-gray-900">Television Repair</h3>
+                        <p class="mt-2 text-gray-600">Component-level repair for premium TVs from Sony, LG, and Samsung. We fix power issues, picture problems, and more.</p>
+                         <a href="services.html" class="mt-4 inline-block text-red-600 font-semibold">Learn More &rarr;</a>
+                    </div>
+                    <!-- High-Fidelity Audio Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center transform hover:-translate-y-2 transition-transform duration-300">
+                         <i class="fas fa-record-vinyl text-6xl text-red-600 mb-6"></i>
+                         <h3 class="text-2xl font-bold text-gray-900">High-Fidelity Audio</h3>
+                         <p class="mt-2 text-gray-600">Meticulous restoration and repair for vintage and high-end audio equipment, from receivers to turntables.</p>
+                         <a href="services.html" class="mt-4 inline-block text-red-600 font-semibold">Learn More &rarr;</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="mission" class="section-content">
-            <div class="container">
-                <div class="testimonial-box fade-in-scroll">
-                    <blockquote>
-                        "We built this institute not just to fix technology, but to foster a deeper understanding of it. True innovation comes from knowing how things work, and we're dedicated to sharing that knowledge."
-                    </blockquote>
-                    <cite>– Karim Gharzai, President & Founder, NIT</cite>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 Nebraska Institute of Technology. An institution registered with the Department of Education.</p>
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold">Contact Us for Authorized Service in Nebraska</h2>
+            <p class="mt-4 max-w-2xl mx-auto text-gray-300">For all warranty-related appliance and TV repair, please contact us directly.</p>
+            <div class="mt-8">
+                <p class="text-2xl font-semibold text-red-500">(402) 466-9090</p>
+                <p class="mt-2 text-lg text-red-500"><a href="mailto:service@metrotv-audiotech.com" class="hover:underline">service@metrotv-audiotech.com</a></p>
+            </div>
+            <p class="mt-8 text-gray-400">1107 N Cotner Blvd, Lincoln, NE 68505</p>
+            <p class="mt-4 text-gray-500">&copy; 2024 Metro TV & Appliance. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <div class="hidden">
+        <h2>Appliance, TV, and Audio Repair SEO Keywords</h2>
+        <p>Authorized appliance repair Lincoln NE. Samsung appliance repair Omaha. GE washer repair Lincoln. LG dryer repair. Whirlpool refrigerator repair. Sony TV repair Lincoln. LG OLED TV repair Omaha. Samsung QLED TV no picture. Vintage audio repair Nebraska. Marantz receiver service. Appliance repair near me. TV repair near me. Hometown Hero Appliance Repair alternative. Andy's Appliance Repair expert alternative.</p>
+    </div>
 
-    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+
+            // Service Area Checker Logic
+            const zipInput = document.getElementById('zipcode-input');
+            const checkBtn = document.getElementById('check-zipcode-btn');
+            const messageEl = document.getElementById('service-message');
+            const serviceableZips = new Set(['51501', '51502', '51503', '51510', '51526', '51534', '51542', '51548', '51553', '51555', '51556', '51559', '51561', '51575', '51576', '51640', '51648', '51652', '51653', '51654', '64482', '64496', '68002', '68003', '68004', '68005', '68007', '68008', '68010', '68014', '68015', '68016', '68017', '68018', '68019', '68020', '68022', '68023', '68025', '68026', '68028', '68029', '68031', '68033', '68034', '68036', '68037', '68038', '68039', '68040', '68041', '68042', '68044', '68045', '68046', '68048', '68050', '68056', '68057', '68058', '68059', '68061', '68063', '68064', '68065', '68066', '68067', '68068', '68069', '68070', '68072', '68073', '68101', '68102', '68103', '68104', '68105', '68106', '68107', '68108', '68109', '68110', '68111', '68112', '68114', '68116', '68117', '68118', '68119', '68120', '68122', '68123', '68124', '68127', '68128', '68130', '68131', '68132', '68133', '68134', '68135', '68136', '68137', '68138', '68139', '68142', '68144', '68145', '68147', '68152', '68154', '68155', '68157', '68164', '68172', '68175', '68176', '68178', '68179', '68180', '68181', '68182', '68183', '68197', '68198', '68301', '68304', '68305', '68307', '68310', '68313', '68314', '68316', '68317', '68318', '68321', '68322', '68323', '68324', '68326', '68327', '68328', '68329', '68331', '68332', '68333', '68335', '68336', '68338', '68339', '68340', '68341', '68342', '68343', '68344', '68345', '68346', '68347', '68349', '68350', '68351', '68352', '68354', '68355', '68357', '68358', '68359', '68360', '68361', '68362', '68364', '68366', '68367', '68368', '68370', '68371', '68372', '68375', '68376', '68378', '68401', '68402', '68403', '68404', '68405', '68406', '68407', '68409', '68410', '68413', '68414', '68415', '68416', '68417', '68418', '68419', '68420', '68421', '68422', '68423', '68424', '68428', '68429', '68430', '68431', '68433', '68434', '68436', '68437', '68438', '68439', '68440', '68441', '68443', '68444', '68445', '68446', '68447', '68448', '68450', '68452', '68453', '68454', '68455', '68456', '68457', '68458', '68460', '68461', '68462', '68463', '68465', '68467', '68501', '68502', '68503', '68504', '68505', '68506', '68507', '68508', '68509', '68510', '68512', '68514', '68516', '68517', '68520', '68521', '68522', '68524', '68526', '68527', '68528', '68529', '68531', '68532', '68542', '68544', '68583', '68588']);
+            
+            const checkZip = () => {
+                const zip = zipInput.value.trim();
+                messageEl.textContent = '';
+                messageEl.className = 'mt-4 text-lg font-semibold text-center h-8'; 
+                if (!/^\d{5}$/.test(zip)) {
+                    messageEl.textContent = 'Please enter a valid 5-digit zip code.';
+                    messageEl.classList.add('text-yellow-600');
+                    return;
+                }
+                if (serviceableZips.has(zip)) {
+                    messageEl.textContent = `Great news! We service the ${zip} area.`;
+                    messageEl.classList.add('text-green-600');
+                } else {
+                    messageEl.textContent = `Sorry, we do not currently service the ${zip} area.`;
+                    messageEl.classList.add('text-red-600');
+                }
+            };
+
+            checkBtn.addEventListener('click', checkZip);
+            zipInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkZip();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

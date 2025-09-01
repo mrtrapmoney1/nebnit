@@ -1,0 +1,213 @@
+/* --- Existing Animations --- */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image:
+        linear-gradient(to right, rgba(229, 231, 235, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body::before, body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 5px;
+    background: linear-gradient(180deg, #DC2626, #EF4444, #F87171, #4B5563, #DC2626);
+    background-size: 100% 300%;
+    animation: gradient-border-flow 8s linear infinite;
+    z-index: 1000;
+}
+
+body::before { left: 0; }
+body::after { right: 0; }
+
+@keyframes gradient-border-flow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 0% 300%; }
+}
+
+.animated-gradient-text {
+    background: linear-gradient(to right, #DC2626, #4B5563, #DC2626);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 5s linear infinite;
+}
+
+@keyframes gradient-flow {
+    to { background-position: 200% center; }
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- NEW: Circuit Trace Animation --- */
+.circuit-card {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+}
+
+.circuit-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(220, 38, 38, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(220, 38, 38, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+}
+
+.circuit-card .trace {
+    position: absolute;
+    background-color: rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.8);
+    border-radius: 1px;
+    animation: trace-flow 10s linear infinite;
+    opacity: 0;
+    z-index: 2;
+}
+
+.circuit-card:hover .trace {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+/* Define multiple traces with different paths and delays */
+.trace-1 { height: 2px; width: 0; top: 15%; left: -100%; animation-delay: 0s; }
+.trace-2 { width: 2px; height: 0; top: -100%; left: 40%; animation-delay: 1.5s; }
+.trace-3 { height: 2px; width: 0; bottom: 25%; right: -100%; animation-name: trace-flow-reverse; animation-delay: 3s; }
+.trace-4 { width: 2px; height: 0; bottom: -100%; left: 70%; animation-delay: 4.5s; }
+
+
+@keyframes trace-flow {
+    0% { width: 0; left: 0%; height: 2px; }
+    25% { width: 60%; left: 0%; height: 2px; }
+    50% { width: 2px; left: 60%; height: 0; top: 15%; }
+    75% { width: 2px; left: 60%; height: 70%; top: 15%; }
+    100% { width: 0; left: 60%; height: 2px; top: 85%; }
+}
+
+@keyframes trace-flow-reverse {
+    0% { width: 0; right: 0%; height: 2px; }
+    25% { width: 50%; right: 0%; height: 2px; }
+    50% { width: 2px; right: 50%; height: 0; bottom: 25%; }
+    75% { width: 2px; right: 50%; height: 50%; bottom: 25%; }
+    100% { width: 0; right: 50%; height: 2px; bottom: 75%; }
+}
+
+
+/* --- NEW: Glitch Effect for Headers --- */
+.glitch-header {
+    position: relative;
+    color: #1f2937;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch-header::before,
+.glitch-header::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f9fafb; /* Match body background */
+}
+
+.glitch-header::before {
+    left: 2px;
+    text-shadow: -2px 0 #ef4444;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-header::after {
+    left: -2px;
+    text-shadow: -2px 0 #4b5563, 2px 2px #ef4444;
+    clip: rect(85px, 450px, 90px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-skew {
+  0% { transform: skewX(0); }
+  100% { transform: skewX(-5deg); }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(46px, 9999px, 95px, 0); }
+  5% { clip: rect(21px, 9999px, 68px, 0); }
+  10% { clip: rect(44px, 9999px, 10px, 0); }
+  15% { clip: rect(69px, 9999px, 4px, 0); }
+  20% { clip: rect(60px, 9999px, 73px, 0); }
+  25% { clip: rect(10px, 9999px, 59px, 0); }
+  30% { clip: rect(7px, 9999px, 99px, 0); }
+  35% { clip: rect(81px, 9999px, 85px, 0); }
+  40% { clip: rect(15px, 9999px, 1px, 0); }
+  45% { clip: rect(5px, 9999px, 82px, 0); }
+  50% { clip: rect(59px, 9999px, 4px, 0); }
+  55% { clip: rect(7px, 9999px, 40px, 0); }
+  60% { clip: rect(40px, 9999px, 9px, 0); }
+  65% { clip: rect(96px, 9999px, 46px, 0); }
+  70% { clip: rect(93px, 9999px, 98px, 0); }
+  75% { clip: rect(31px, 9999px, 100px, 0); }
+  80% { clip: rect(25px, 9999px, 45px, 0); }
+  85% { clip: rect(13px, 9999px, 2px, 0); }
+  90% { clip: rect(51px, 9999px, 97px, 0); }
+  95% { clip: rect(82px, 9999px, 57px, 0); }
+  100% { clip: rect(1px, 9999px, 43px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(82px, 9999px, 3px, 0); }
+  5% { clip: rect(85px, 9999px, 7px, 0); }
+  10% { clip: rect(9px, 9999px, 8px, 0); }
+  15% { clip: rect(9px, 9999px, 3px, 0); }
+  20% { clip: rect(41px, 9999px, 20px, 0); }
+  25% { clip: rect(14px, 9999px, 2px, 0); }
+  30% { clip: rect(93px, 9999px, 2px, 0); }
+  35% { clip: rect(39px, 9999px, 10px, 0); }
+  40% { clip: rect(1px, 9999px, 60px, 0); }
+  45% { clip: rect(21px, 9999px, 69px, 0); }
+  50% { clip: rect(9px, 9999px, 9px, 0); }
+  55% { clip: rect(2px, 9999px, 5px, 0); }
+  60% { clip: rect(1px, 9999px, 7px, 0); }
+  65% { clip: rect(100px, 9999px, 1px, 0); }
+  70% { clip: rect(5px, 9999px, 7px, 0); }
+  75% { clip: rect(1px, 9999px, 9px, 0); }
+  80% { clip: rect(100px, 9999px, 8px, 0); }
+  85% { clip: rect(10px, 9999px, 8px, 0); }
+  90% { clip: rect(10px, 9999px, 9px, 0); }
+  95% { clip: rect(1px, 9999px, 8px, 0); }
+  100% { clip: rect(10px, 9999px, 8px, 0); }
+}

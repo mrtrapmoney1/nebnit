@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Technician | Metro TV & Appliance</title>
+    <meta name="description" content="Use our interactive diagnostic tool to identify issues with your appliances, TVs, or audio equipment and see why you need an expert repair from Metro TV & Appliance.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .step-container { display: none; }
+        .step-container.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .option-card {
+            transition: all 0.2s ease-in-out;
+            border: 2px solid #e5e7eb;
+        }
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: #DC2626;
+            box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+        }
+        .option-card.selected {
+            background-color: #DC2626;
+            color: white;
+            border-color: #DC2626;
+        }
+        .option-card.selected i { color: white !important; }
+        #result-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease-in-out, opacity 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+            opacity: 0;
+        }
+        #result-container.show {
+            max-height: 2000px; /* Increased for more content */
+            opacity: 1;
+            margin-top: 2rem;
+        }
+        .breadcrumb-item { cursor: pointer; }
+        .breadcrumb-item:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-['Inter',_sans-serif]">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600">About Us</a>
+                <a href="services.html" class="text-red-600 font-semibold">Services</a>
+                <a href="service-areas.html" class="text-gray-600 hover:text-red-600">Service Areas</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Virtual Technician</h1>
+            <p class="mt-4 text-lg text-gray-600">Having an issue? Let's narrow it down. Our interactive tool provides free diagnostic help for common problems.</p>
+        </div>
+
+        <div id="diagnostic-tool" class="mt-12 max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+            <!-- Breadcrumbs -->
+            <div id="breadcrumbs" class="text-sm text-gray-500 mb-6 flex items-center space-x-2"></div>
+            
+            <!-- Step Containers -->
+            <div id="step-1-category" class="step-container active"></div>
+            <div id="step-2-product" class="step-container"></div>
+            <div id="step-3-symptom" class="step-container"></div>
+
+            <!-- Result Section -->
+            <div id="result-container" class="text-left"></div>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-900 text-white py-16 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2024 Metro TV & Appliance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const diagnosticData = {
+                'Home Appliances': {
+                    icon: 'fa-house-chimney-window',
+                    products: {
+                        'Refrigerator': {
+                            symptoms: {
+                                'Not Cooling Properly': {
+                                    cause: 'This is often caused by dirty condenser coils, a malfunctioning evaporator fan, or a faulty defrost system. These components are crucial for heat exchange and air circulation.',
+                                    diy: '<strong>Check the Coils:</strong> Unplug the unit and inspect the coils on the back or bottom. If they are covered in dust or pet hair, gently vacuum them. This simple step can significantly improve cooling efficiency. <br><strong>Check Temperature Settings:</strong> Ensure the thermostat is set to the recommended temperature (typically around 37°F or 3°C).',
+                                    warning: 'Working on sealed refrigeration systems or complex electronics like control boards requires specialized tools and carries a risk of refrigerant leaks or electrical damage.'
+                                },
+                                'Ice Maker Not Working': {
+                                    cause: 'Common culprits include a clogged water line, a faulty water inlet valve, or a problem with the ice maker module itself. The temperature of the freezer can also affect its operation.',
+                                    diy: '<strong>Check Water Supply:</strong> Ensure the water line connected to the fridge is turned on and not kinked. <br><strong>Check Freezer Temp:</strong> The freezer should be at 0°F (-18°C) for the ice maker to cycle correctly.',
+                                    warning: 'Replacing the water inlet valve or ice maker module involves working with both water and electrical connections.'
+                                },
+                                'Leaking Water': {
+                                    cause: 'A clogged defrost drain is a common cause, leading to water overflowing into the fresh food compartment. It can also be a cracked drain pan or a faulty water inlet valve.',
+                                    diy: '<strong>Clear the Defrost Drain:</strong> Locate the drain hole inside the back of the freezer and use a turkey baster with warm water to flush out any ice or debris.',
+                                    warning: 'If the leak is from a component, it requires professional replacement to prevent water damage.'
+                                }
+                            }
+                        },
+                        'Washer': {
+                            symptoms: {
+                                'Won\'t Start': {
+                                    cause: 'This could be a simple issue like a faulty lid switch or a more complex problem with the main control board or motor.',
+                                    diy: '<strong>Check the Lid Switch:</strong> Ensure the lid is closing properly and engaging the switch. You should hear a click. <br><strong>Check Power:</strong> Verify the washer is plugged in and the circuit breaker hasn\'t tripped.',
+                                    warning: 'Diagnosing control boards and motors involves live voltage testing and should only be performed by a professional.'
+                                },
+                                'Doesn\'t Drain': {
+                                    cause: 'The most common cause is a clogged drain pump or hose. A foreign object like a sock or coin can easily cause a blockage.',
+                                    diy: '<strong>Check the Drain Hose:</strong> Make sure the hose is not kinked or clogged where it enters the standpipe. <br><strong>Clean the Pump Filter:</strong> Many front-loaders have a small door with a filter for the drain pump. Unplug the machine, have a towel ready, and clean out any debris.',
+                                    warning: 'Accessing the drain pump often requires removing panels and can result in water spillage.'
+                                },
+                                'Door/Lid Won\'t Lock': {
+                                    cause: 'This is a common issue with modern washers and is almost always due to a failed door lock assembly. The machine will not start a cycle if it doesn\'t detect a secure lock.',
+                                    diy: '<strong>Check for Obstructions:</strong> Make sure no clothing is caught in the door or lid preventing it from closing fully.',
+                                    warning: 'The lock assembly is an electronic component that must be replaced carefully to ensure proper function and safety.'
+                                }
+                            }
+                        },
+                        'Dryer': {
+                            symptoms: {
+                                'Not Heating': {
+                                    cause: 'For electric dryers, this is usually a burnt-out heating element or a tripped thermal fuse. For gas dryers, it could be a faulty igniter or gas valve.',
+                                    diy: '<strong>Clean the Lint Trap & Vent:</strong> A clogged vent is the #1 cause of poor performance and is a serious fire hazard. Clean the entire vent line from the dryer to the outside of your house.',
+                                    warning: '<strong>EXTREME DANGER:</strong> Gas dryer repairs require a licensed professional. Electric dryer repairs involve high voltage and can be very dangerous.'
+                                },
+                                'Won\'t Tumble': {
+                                    cause: 'This is almost always a broken drive belt. It\'s a common wear-and-tear item.',
+                                    diy: '<strong>Check the Belt:</strong> If you can turn the drum by hand with very little resistance, the belt is likely broken.',
+                                    warning: 'Replacing the belt requires significant disassembly of the dryer cabinet.'
+                                },
+                                'Door Won\'t Latch': {
+                                    cause: 'The issue is typically a broken door latch or strike. These plastic or metal parts can wear out or break over time, preventing the door from staying closed.',
+                                    diy: '<strong>Inspect the Latch:</strong> Look at the latch on the door and the strike on the frame. If either part is visibly cracked or broken, it needs to be replaced.',
+                                    warning: 'While a simple part, ensuring the correct replacement and fit is key to proper operation.'
+                                }
+                            }
+                        },
+                        'Microwave': {
+                            symptoms: {
+                                'Not Heating': {
+                                    cause: 'This is typically due to a failed magnetron, capacitor, or high-voltage diode. These are core components of the microwave generation system.',
+                                    diy: '<strong>There are no safe DIY checks for this issue.</strong>',
+                                    warning: '<strong>EXTREME DANGER:</strong> Microwaves store a lethal electrical charge in their capacitors even when unplugged. NEVER attempt to open or repair a microwave yourself. This is a job for a trained professional ONLY.'
+                                },
+                                'Turntable Not Spinning': {
+                                    cause: 'This is usually a simple fix, like a broken turntable motor or a stripped coupler.',
+                                    diy: '<strong>Check for Obstructions:</strong> Make sure the turntable plate and roller guide are seated correctly and free of debris.',
+                                    warning: 'Replacing the motor involves accessing internal components, and the same safety warning about lethal voltage applies.'
+                                }
+                            }
+                        }
+                    }
+                },
+                'TV & Video': {
+                    icon: 'fa-tv',
+                    products: {
+                        'Television': {
+                            symptoms: {
+                                'No Picture (Has Sound)': {
+                                    cause: 'This classic symptom almost always points to a failure in the TV\'s backlight system, which illuminates the screen from behind.',
+                                    diy: '<strong>The Flashlight Test:</strong> In a dark room, shine a bright flashlight at an angle against the screen. If you can faintly see the image, the backlights are out.',
+                                    warning: 'Backlight repair requires complete disassembly of the TV panel, which is extremely delicate and easily damaged.'
+                                },
+                                'Lines on Screen': {
+                                    cause: 'Vertical or horizontal lines are often caused by a failure in the T-Con board or, more seriously, a defect in the connections to the LCD panel itself.',
+                                    diy: '<strong>Check Connections:</strong> Ensure all external source cables (HDMI, etc.) are securely plugged in.',
+                                    warning: 'This is an internal electronic fault that requires component-level diagnosis.'
+                                },
+                                'Won\'t Turn On': {
+                                    cause: 'Could be a faulty power supply board or a failure on the main board. Sometimes indicated by a blinking standby light.',
+                                    diy: '<strong>Power Cycle:</strong> Unplug the TV from the wall for 60 seconds, then plug it back in. This can reset the internal electronics.',
+                                    warning: 'TV power supply boards carry high voltage. A professional is required for safe diagnosis and repair.'
+                                }
+                            }
+                        }
+                    }
+                },
+                'Audio Equipment': {
+                    icon: 'fa-headphones-alt',
+                    products: {
+                        'Audio Receivers': {
+                            symptoms: {
+                                'No Sound from Any Speaker': {
+                                    cause: 'This could be an internal fuse, a failure in the amplifier protection circuit, or a problem with the main power supply.',
+                                    diy: '<strong>Check Speaker Connections:</strong> Make sure speaker wires are securely connected to both the receiver and the speakers. <br><strong>Check Speaker Selector:</strong> Ensure the correct speaker zone (e.g., A or B) is selected on the front panel.',
+                                    warning: 'Amplifier circuits carry high voltage and are complex. A professional is needed to safely diagnose and repair.'
+                                },
+                                'One Channel is Out': {
+                                    cause: 'This often indicates a failed output transistor or a problem within the pre-amplifier stage for that specific channel.',
+                                    diy: '<strong>Swap Speakers:</strong> Connect the working speaker to the non-working channel. If it still doesn\'t work, the problem is in the receiver. If the problem moves with the speaker, the issue is the speaker or wire.',
+                                    warning: 'Component-level amplifier repair is one of our specialties.'
+                                },
+                                'Powers Off Unexpectedly': {
+                                    cause: 'The receiver is likely going into "protect mode" due to overheating, a short in a speaker wire, or an internal component failure.',
+                                    diy: '<strong>Check for Shorts:</strong> Inspect your speaker wire connections for any stray strands of wire that could be touching the metal chassis or another terminal. <br><strong>Ensure Ventilation:</strong> Make sure the receiver has plenty of space around it for air to circulate.',
+                                    warning: 'If the issue persists, it indicates an internal fault that needs an expert technician.'
+                                }
+                            }
+                        },
+                        'Turntables': {
+                            symptoms: {
+                                'Won\'t Spin': {
+                                    cause: 'For belt-drive models, this is almost always a broken or slipped belt. For direct-drive, it could be a motor or control circuit issue.',
+                                    diy: '<strong>Check the Belt:</strong> Lift the platter to see if the drive belt is in place and intact. New belts are readily available for most models.',
+                                    warning: 'Direct-drive turntable repair involves complex motor control electronics.'
+                                },
+                                'Sound is Distorted': {
+                                    cause: 'This can be caused by a worn-out stylus (needle), incorrect tracking force, or a problem with the phono pre-amplifier.',
+                                    diy: '<strong>Check/Replace Stylus:</strong> A worn stylus is the most common cause of poor sound. Inspect it for damage. <br><strong>Balance Tonearm:</strong> Check your turntable\'s manual to ensure the tracking force and anti-skate are set correctly.',
+                                    warning: 'Internal pre-amp issues require electronic diagnosis.'
+                                }
+                            }
+                        }
+                    }
+                },
+                'Electric Mobility': {
+                    icon: 'fa-bicycle',
+                    products: {
+                        'Electric RV Systems': {
+                            symptoms: {
+                                'Converter Not Charging': {
+                                    cause: 'This can be due to tripped breakers, blown reverse-polarity fuses, or a complete failure of the converter unit.',
+                                    diy: '<strong>Check Breakers & Fuses:</strong> Check your RV\'s main power panel for any tripped 120V AC breakers or blown 12V DC fuses.',
+                                    warning: 'Working with RV electrical systems involves both AC and DC power and can be dangerous if you\'re not experienced.'
+                                },
+                                'Inverter Not Working': {
+                                    cause: 'Common issues include a low battery bank, a blown internal fuse on the inverter, or a faulty connection.',
+                                    diy: '<strong>Check Battery Voltage:</strong> Ensure your house batteries are fully charged (typically above 12.2V). Inverters have a low-voltage cutoff to protect the batteries.',
+                                    warning: 'Inverters produce household AC voltage and should be serviced by a qualified technician.'
+                                }
+                            }
+                        },
+                        'Electric Bikes': {
+                            symptoms: {
+                                'Motor Won\'t Engage': {
+                                    cause: 'This is often a problem with the brake sensor cutting off power, a loose connection, or a fault in the controller or motor itself.',
+                                    diy: '<strong>Check Brake Levers:</strong> Make sure the brake levers are fully released. A sticky lever can keep the motor cutoff switch engaged. <br><strong>Check Connections:</strong> Inspect all visible wire connections to ensure they are secure.',
+                                    warning: 'Diagnosing e-bike controllers and hub motors requires specialized knowledge of their electronic systems.'
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            // --- STATE MANAGEMENT ---
+            const state = {
+                currentStep: 1,
+                category: null,
+                product: null,
+                symptom: null
+            };
+
+            // --- DOM ELEMENTS ---
+            const breadcrumbsEl = document.getElementById('breadcrumbs');
+            const step1El = document.getElementById('step-1-category');
+            const step2El = document.getElementById('step-2-product');
+            const step3El = document.getElementById('step-3-symptom');
+            const resultContainerEl = document.getElementById('result-container');
+
+            // --- RENDER FUNCTIONS ---
+            function renderBreadcrumbs() {
+                let html = `<span class="breadcrumb-item" data-step="1">Start</span>`;
+                if (state.category) {
+                    html += ` <i class="fas fa-chevron-right text-xs"></i> <span class="breadcrumb-item" data-step="2">${state.category}</span>`;
+                }
+                if (state.product) {
+                    html += ` <i class="fas fa-chevron-right text-xs"></i> <span class="breadcrumb-item" data-step="3">${state.product}</span>`;
+                }
+                breadcrumbsEl.innerHTML = html;
+            }
+
+            function renderStep1_Categories() {
+                let html = `<h2 class="text-2xl font-bold text-center">Step 1: Select a Category</h2><div class="mt-8 grid md:grid-cols-4 gap-6">`;
+                for (const category in diagnosticData) {
+                    html += `
+                        <div class="option-card rounded-lg p-6 text-center cursor-pointer" data-value="${category}">
+                            <i class="fas ${diagnosticData[category].icon} text-5xl mb-4 text-red-500"></i>
+                            <h3 class="text-xl font-semibold">${category}</h3>
+                        </div>`;
+                }
+                html += `</div>`;
+                step1El.innerHTML = html;
+                showStep(1);
+            }
+
+            function renderStep2_Products() {
+                let html = `<h2 class="text-2xl font-bold text-center">Step 2: Choose Your Product</h2><div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">`;
+                const products = diagnosticData[state.category].products;
+                for (const product in products) {
+                    html += `<div class="option-card rounded-lg p-4 text-center cursor-pointer" data-value="${product}"><h3 class="font-semibold">${product}</h3></div>`;
+                }
+                html += `</div>`;
+                step2El.innerHTML = html;
+                showStep(2);
+            }
+
+            function renderStep3_Symptoms() {
+                let html = `<h2 class="text-2xl font-bold text-center">Step 3: What's the Issue?</h2><div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">`;
+                const symptoms = diagnosticData[state.category].products[state.product].symptoms;
+                for (const symptom in symptoms) {
+                    html += `<div class="option-card rounded-lg p-4 text-center cursor-pointer" data-value="${symptom}"><h3 class="font-semibold">${symptom}</h3></div>`;
+                }
+                html += `</div>`;
+                step3El.innerHTML = html;
+                showStep(3);
+            }
+
+            function renderResult() {
+                const resultData = diagnosticData[state.category].products[state.product].symptoms[state.symptom];
+                let html = `
+                    <h3 class="text-3xl font-bold text-gray-900 border-b pb-4 mb-4">Diagnosis: ${state.symptom}</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2"><i class="fas fa-search-plus mr-2 text-red-600"></i>Potential Cause</h4>
+                            <p class="text-gray-600">${resultData.cause}</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2"><i class="fas fa-tools mr-2 text-red-600"></i>Free DIY Diagnostic Tips</h4>
+                            <div class="text-gray-600">${resultData.diy}</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-r-lg">
+                        <p class="font-bold"><i class="fas fa-exclamation-triangle mr-2"></i>Safety Warning</p>
+                        <p>${resultData.warning} We do not recommend proceeding with repairs if you are not experienced with electronics, as you could face serious injury from high voltage.</p>
+                    </div>
+                     <div class="mt-6 text-center">
+                         <a href="contact.html" class="inline-block bg-red-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="fas fa-user-shield mr-2"></i>Schedule a Professional Repair
+                        </a>
+                     </div>
+                `;
+                resultContainerEl.innerHTML = html;
+                resultContainerEl.classList.add('show');
+            }
+
+            // --- CONTROL FLOW ---
+            function showStep(stepNum) {
+                document.querySelectorAll('.step-container').forEach(el => el.classList.remove('active'));
+                document.getElementById(`step-${stepNum === 1 ? '1-category' : stepNum === 2 ? '2-product' : '3-symptom'}`).classList.add('active');
+                resultContainerEl.classList.remove('show');
+                renderBreadcrumbs();
+            }
+
+            function resetToStep(step) {
+                if (step === 1) {
+                    state.category = null;
+                    state.product = null;
+                    state.symptom = null;
+                } else if (step === 2) {
+                    state.product = null;
+                    state.symptom = null;
+                } else if (step === 3) {
+                    state.symptom = null;
+                }
+                
+                if (step === 1) renderStep1_Categories();
+                if (step === 2) renderStep2_Products();
+                if (step === 3) renderStep3_Symptoms();
+            }
+
+            // --- EVENT LISTENERS ---
+            step1El.addEventListener('click', e => {
+                const card = e.target.closest('.option-card');
+                if (card) {
+                    state.category = card.dataset.value;
+                    renderStep2_Products();
+                }
+            });
+
+            step2El.addEventListener('click', e => {
+                const card = e.target.closest('.option-card');
+                if (card) {
+                    state.product = card.dataset.value;
+                    renderStep3_Symptoms();
+                }
+            });
+
+            step3El.addEventListener('click', e => {
+                const card = e.target.closest('.option-card');
+                if (card) {
+                    state.symptom = card.dataset.value;
+                    renderResult();
+                }
+            });
+            
+            breadcrumbsEl.addEventListener('click', e => {
+                const crumb = e.target.closest('.breadcrumb-item');
+                if (crumb) {
+                    const step = parseInt(crumb.dataset.step, 10);
+                    resetToStep(step);
+                }
+            });
+
+            // --- INITIALIZATION ---
+            renderStep1_Categories();
+        });
+    </script>
+</body>
+</html>

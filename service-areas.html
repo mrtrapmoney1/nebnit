@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebraska Service Areas | Metro TV & Appliance</title>
+    <meta name="description" content="We provide expert, authorized appliance and TV repair services for Lincoln, Omaha, Grand Island, Nebraska City, Seward, and dozens of surrounding communities.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* A simple fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* A simple gradient text animation */
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #DC2626, #4B5563, #111827, #DC2626);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="text-gray-600 hover:text-red-600">Services</a>
+                <a href="#" class="text-red-600 font-semibold">Service Areas</a>
+                <a href="#" class="text-gray-600 hover:text-red-600">Why Choose Us</a>
+                <a href="#" class="text-gray-600 hover:text-red-600">Blog</a>
+                <a href="#contact" class="text-gray-600 hover:text-red-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        <section class="max-w-5xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 animated-gradient-text">Proudly Serving Our Nebraska Communities</h1>
+                <p class="mt-4 text-lg text-gray-600">We are a local Nebraska business dedicated to providing reliable, factory-authorized repair services to our neighbors. Find your city below or use our checker to see if you're in our extensive service area.</p>
+            </div>
+
+            <!-- Service Area Checker -->
+            <div id="service-area-checker" class="mt-12 max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg fade-in-section">
+                <h2 class="text-2xl font-bold text-gray-900 text-center">Check Your Service Area Instantly</h2>
+                <p class="mt-2 text-center text-gray-600">Enter your 5-digit zip code to confirm service.</p>
+                <div class="mt-6 max-w-md mx-auto flex items-center">
+                    <input type="text" id="zipcode-input" placeholder="Enter zip code..." class="w-full px-4 py-3 rounded-l-md border-2 border-gray-300 focus:outline-none focus:border-red-500">
+                    <button id="check-zipcode-btn" class="bg-red-600 text-white font-bold px-6 py-3 rounded-r-md hover:bg-red-700 transition-colors">Check</button>
+                </div>
+                <div id="service-message" class="mt-4 text-lg font-semibold text-center h-8"></div>
+            </div>
+
+
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold text-center text-gray-900">Major Service Hubs</h2>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Lincoln -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Lincoln</h3>
+                        <p class="mt-2 text-gray-600">Our home base. Full-service, authorized repair for appliances, TVs, and audio.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Lincoln Services &rarr;</span>
+                    </a>
+                    <!-- Omaha -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Omaha</h3>
+                        <p class="mt-2 text-gray-600">Expert TV and appliance repair for the entire Omaha metro area.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Omaha Services &rarr;</span>
+                    </a>
+                    <!-- Grand Island -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Grand Island</h3>
+                        <p class="mt-2 text-gray-600">Reliable washer, dryer, and refrigerator repair services.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Grand Island Services &rarr;</span>
+                    </a>
+                    <!-- Nebraska City -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Nebraska City</h3>
+                        <p class="mt-2 text-gray-600">Serving the historic southeastern corner of Nebraska with prompt and professional repairs.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Nebraska City Services &rarr;</span>
+                    </a>
+                    <!-- Council Bluffs -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Council Bluffs</h3>
+                        <p class="mt-2 text-gray-600">Extending our expert services across the river to our neighbors in Council Bluffs.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Council Bluffs Services &rarr;</span>
+                    </a>
+                    <!-- Beatrice -->
+                    <a href="#" class="block bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <h3 class="text-2xl font-bold text-gray-900">Beatrice</h3>
+                        <p class="mt-2 text-gray-600">Your trusted local repair experts for Beatrice and surrounding Gage County.</p>
+                        <span class="mt-4 inline-block text-red-600 font-semibold">View Beatrice Services &rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ** UPDATED SECTION ** -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-lg fade-in-section">
+                <h2 class="text-3xl font-bold text-gray-800 text-center">Covering Your Corner of Nebraska</h2>
+                <p class="mt-4 text-center text-gray-600 max-w-3xl mx-auto">
+                    Our service area is always expanding! While we have major hubs in Lincoln, Omaha, and Grand Island, our technicians travel far and wide across the state. The best way to know for sure if we can come to you is to use our instant zip code checker.
+                </p>
+                <div class="mt-6 text-center">
+                     <a href="#service-area-checker" class="inline-block bg-red-600 text-white font-bold px-8 py-3 rounded-md hover:bg-red-700 transition-colors">
+                        Check My Zip Code Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white py-16 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2024 Metro TV & Appliance. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Service Area Checker Logic ---
+            const zipInput = document.getElementById('zipcode-input');
+            const checkBtn = document.getElementById('check-zipcode-btn');
+            const messageEl = document.getElementById('service-message');
+            
+            // This is the list of zip codes where you provide service.
+            // You should update this list with all the zip codes from your CSV file.
+            const serviceableZips = new Set(['51501', '51502', '51503', '51510', '51526', '51534', '51542', '51548', '51553', '51555', '51556', '51559', '51561', '51575', '51576', '51640', '51648', '51652', '51653', '51654', '64482', '64496', '68002', '68003', '68004', '68005', '68007', '68008', '68010', '68014', '68015', '68016', '68017', '68018', '68019', '68020', '68022', '68023', '68025', '68026', '68028', '68029', '68031', '68033', '68034', '68036', '68037', '68038', '68039', '68040', '68041', '68042', '68044', '68045', '68046', '68048', '68050', '68056', '68057', '68058', '68059', '68061', '68063', '68064', '68065', '68066', '68067', '68068', '68069', '68070', '68072', '68073', '68101', '68102', '68103', '68104', '68105', '68106', '68107', '68108', '68109', '68110', '68111', '68112', '68114', '68116', '68117', '68118', '68119', '68120', '68122', '68123', '68124', '68127', '68128', '68130', '68131', '68132', '68133', '68134', '68135', '68136', '68137', '68138', '68139', '68142', '68144', '68145', '68147', '68152', '68154', '68155', '68157', '68164', '68172', '68175', '68176', '68178', '68179', '68180', '68181', '68182', '68183', '68197', '68198', '68301', '68304', '68305', '68307', '68310', '68313', '68314', '68316', '68317', '68318', '68321', '68322', '68323', '68324', '68326', '68327', '68328', '68329', '68331', '68332', '68333', '68335', '68336', '68338', '68339', '68340', '68341', '68342', '68343', '68344', '68345', '68346', '68347', '68349', '68350', '68351', '68352', '68354', '68355', '68357', '68358', '68359', '68360', '68361', '68362', '68364', '68366', '68367', '68368', '68370', '68371', '68372', '68375', '68376', '68378', '68401', '68402', '68403', '68404', '68405', '68406', '68407', '68409', '68410', '68413', '68414', '68415', '68416', '68417', '68418', '68419', '68420', '68421', '68422', '68423', '68424', '68428', '68429', '68430', '68431', '68433', '68434', '68436', '68437', '68438', '68439', '68440', '68441', '68443', '68444', '68445', '68446', '68447', '68448', '68450', '68452', '68453', '68454', '68455', '68456', '68457', '68458', '68460', '68461', '68462', '68463', '68465', '68467', '68501', '68502', '68503', '68504', '68505', '68506', '68507', '68508', '68509', '68510', '68512', '68514', '68516', '68517', '68520', '68521', '68522', '68524', '68526', '68527', '68528', '68529', '68531', '68532', '68542', '68544', '68583', '68588']);
+
+            const checkZip = () => {
+                const zip = zipInput.value.trim();
+                messageEl.textContent = '';
+                messageEl.className = 'mt-4 text-lg font-semibold text-center h-8'; 
+                if (!/^\d{5}$/.test(zip)) {
+                    messageEl.textContent = 'Please enter a valid 5-digit zip code.';
+                    messageEl.classList.add('text-yellow-600');
+                    return;
+                }
+                if (serviceableZips.has(zip)) {
+                    messageEl.textContent = `Great news! We service the ${zip} area.`;
+                    messageEl.classList.add('text-green-600');
+                } else {
+                    messageEl.textContent = `Sorry, we do not currently service the ${zip} area.`;
+                    messageEl.classList.add('text-red-600');
+                }
+            };
+
+            checkBtn.addEventListener('click', checkZip);
+            zipInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkZip();
+                }
+            });
+
+            // --- Intersection Observer for fade-in animations ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>

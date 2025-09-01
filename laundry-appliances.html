@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Appliance Repair Lincoln NE | Metro TV & Appliance</title>
+    <meta name="description" content="Authorized and expert repair for washers and dryers from LG, Samsung, GE, and Whirlpool. We specialize in diagnosing electronic control board failures and error codes.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations_v2.css">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <a href="index.html" class="text-gray-600 font-semibold hover:text-red-600 transition duration-300">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        <section class="max-w-5xl mx-auto">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 animated-gradient-text">Advanced Laundry Appliance Service</h1>
+                <p class="mt-4 text-lg text-gray-600">Your high-efficiency washer and dryer are run by sophisticated electronics. When they fail, you need a technician who understands the technology. Our authorized relationships with the industry's top brands ensure a professional and reliable repair.</p>
+            </div>
+
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-xl fade-in-section circuit-card">
+                <div class="trace trace-1"></div>
+                <div class="trace trace-2"></div>
+                <div class="trace trace-3"></div>
+                <div class="trace trace-4"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold text-gray-800 glitch-header" data-text="Decoding the Brains of Your Laundry Room">Decoding the Brains of Your Laundry Room</h2>
+                    <p class="mt-4 text-gray-700">The shift from mechanical timers to digital control boards has revolutionized laundry appliances, but it has also created new points of failure. Error codes on a display are the new language of a broken machine, and we are fluent in it. Our deep experience in electronics allows us to trace these codes back to their source, whether it's a faulty main control board, a motor control circuit, or a malfunctioning sensor.</p>
+                </div>
+            </div>
+
+            <!-- Brand Sections -->
+            <div class="mt-12 space-y-12">
+                <!-- LG & Samsung -->
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in-section">
+                    <h3 class="text-2xl font-bold text-gray-900">LG & Samsung: Authorized Service for the Innovators</h3>
+                    <p class="mt-4 text-gray-700">LG and Samsung have driven much of the innovation in the laundry market. As an authorized service partner for both, we are at the forefront of repairing their latest technologies, from smart features to advanced steam cycles. Our direct relationship gives us access to the proprietary diagnostic tools needed to service their complex electronic systems effectively.</p>
+                </div>
+
+                <!-- Whirlpool -->
+                <div class="bg-white p-8 rounded-lg shadow-lg fade-in-section">
+                    <h3 class="text-2xl font-bold text-gray-900">Whirlpool: Extensive Experience with an American Icon</h3>
+                    <p class="mt-4 text-gray-700">Whirlpool remains one of the most common brands in American homes. While the company navigates a competitive market, their products are workhorses that we service extensively. Our technicians have years of hands-on experience with Whirlpool's engineering, allowing us to quickly diagnose and repair their most common electronic failures, which often present as specific error codes (like "F01" or "F07") pointing directly to the circuit board.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Keyword Section -->
+        <div class="hidden">
+            <h2>Laundry Appliance Repair in Nebraska</h2>
+            <p>We provide expert washer and dryer repair in Lincoln, Omaha, Grand Island, Nebraska City, and all surrounding communities.</p>
+            <ul>
+                <li>Washer repair Lincoln, Dryer repair Omaha, Washing machine repair Grand Island</li>
+                <li>LG washer repair Lincoln, Samsung dryer repair Omaha, Whirlpool washer repair Lincoln</li>
+                <li>GE dryer repair Nebraska City</li>
+                <li>Washer not spinning, Dryer not heating, Washer not draining, Dryer making noise</li>
+                <li>Whirlpool washer F01 error code repair, LG washer UE error, Samsung dryer heating element replacement</li>
+                <li>Washer repair 68521, Dryer repair 68114</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-16 mt-20">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2024 Metro TV & Appliance. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>

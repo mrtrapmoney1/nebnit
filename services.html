@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Metro TV & Appliance</title>
+    <meta name="description" content="Expert, factory-authorized repair for all major home appliances, TVs, and audio systems. A family-owned Nebraska tradition since 1947.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #DC2626, #4B5563, #111827, #DC2626);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-5deg);
+            color: #DC2626;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-red-600">About</a>
+                <a href="services.html" class="text-red-600 font-semibold">Services</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-20">
+        <!-- Hero Section -->
+        <section class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 animated-gradient-text">Keeping Your Home Running Smoothly</h1>
+            <p class="mt-4 text-lg text-gray-600">From the kitchen to the living room, we're here to fix the tech you rely on every day. As a factory-authorized service center for most major brands, we combine decades of experience with the latest training to get the job done right.</p>
+        </section>
+
+        <!-- Services Section -->
+        <section class="mt-20 max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900">What Can We Help You With?</h2>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Home Appliances Card -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center fade-in-section">
+                    <i class="fas fa-blender-phone text-5xl text-gray-400 service-icon transition-all duration-300"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-6">Home Appliances</h3>
+                    <p class="mt-2 text-gray-600">Your kitchen and laundry room are the heart of your home. We service refrigerators, dishwashers, ovens, washers, dryers, and more to keep your household on track.</p>
+                </div>
+                <!-- TV & Video Card -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center fade-in-section" style="transition-delay: 100ms;">
+                    <i class="fas fa-tv text-5xl text-gray-400 service-icon transition-all duration-300"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-6">TV & Video</h3>
+                    <p class="mt-2 text-gray-600">It all started with TVs for us back in '47! We're experts in diagnosing and repairing all types of televisions and video equipment, from the latest smart TVs to classic projectors.</p>
+                </div>
+                <!-- Audio Systems Card -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center fade-in-section" style="transition-delay: 200ms;">
+                    <i class="fas fa-headphones-alt text-5xl text-gray-400 service-icon transition-all duration-300"></i>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-6">Home & Car Audio</h3>
+                    <p class="mt-2 text-gray-600">Thanks to our merger with audio specialists, we handle everything from high-fidelity home theater systems to custom car audio installations and repairs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story / About Us Section -->
+        <section class="mt-24 bg-white p-8 md:p-12 rounded-2xl shadow-lg fade-in-section">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-800">A Family Tradition of Service</h2>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                    We've been part of the community since 1947, back when televisions were just starting to bring Husker Nation into our living rooms. As a family-owned business, we grew by listening to our neighbors. When you needed audio expertise in the 90s, we merged with the best. When appliances became more complex, we trained our team to handle it all.
+                </p>
+                <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                    Today, we're proud to be your all-in-one, factory-authorized repair partner. Choosing us means you're choosing a team with a proven history, a commitment to ongoing training, and a genuine dedication to keeping your home running right. That's the Metro difference.
+                </p>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="mt-24 text-center fade-in-section">
+             <h2 class="text-3xl font-bold text-gray-900">Ready for a Repair?</h2>
+             <p class="mt-4 text-lg text-gray-600">Let's get your devices back in top shape. Get in touch with our friendly team today.</p>
+             <a href="contact.html" class="mt-8 inline-block bg-red-600 text-white font-bold px-10 py-4 rounded-lg hover:bg-red-700 transition-colors text-lg">
+                Contact Us Now
+            </a>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-bold text-lg">Metro TV & Appliance</h3>
+                    <p class="text-gray-400 mt-2">Your trusted partner in home and audio repair for over 70 years.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Quick Links</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Contact Us</h3>
+                    <ul class="mt-2 space-y-2 text-gray-400">
+                        <li><a href="mailto:service@metrotv-audiotech.com" class="hover:text-white">service@metrotv-audiotech.com</a></li>
+                        <li><a href="tel:402-466-9090" class="hover:text-white">(402) 466-9090</a></li>
+                        <li>1107 North Cotner Blvd, Lincoln, NE 68505</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 Metro TV & Appliance. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>

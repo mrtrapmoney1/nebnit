@@ -3,32 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - nebnit.com</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About Us | Metro TV & Appliance</title>
+    <meta name="description" content="Discover the story of Metro TV & Appliance, a family-owned Nebraska business committed to excellence and factory-authorized service since 1947.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animated-gradient-text {
+            background: linear-gradient(-45deg, #DC2626, #4B5563, #111827, #DC2626);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb; /* gray-200 */
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 4px;
+            height: 20px;
+            width: 20px;
+            background: #DC2626; /* red-600 */
+            border-radius: 50%;
+            border: 4px solid #f9fafb; /* gray-50 */
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-['Inter',_sans-serif]">
 
-    <header>
-        <h1>nebnit.com</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" rx="20" fill="#DC2626"/><text x="100" y="115" font-family="Inter, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">M</text></svg>
+                <span class="text-xl font-bold text-gray-800">Metro TV & Appliance</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
+                <a href="about.html" class="text-red-600 font-semibold">About</a>
+                <a href="services.html" class="text-gray-600 hover:text-red-600">Services</a>
+                <a href="contact.html" class="text-gray-600 hover:text-red-600">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="about-me">
-            <h2>About Me</h2>
-            <p>This is the page where I will write a little bit about myself.</p>
+    <main class="container mx-auto px-6 py-20">
+        <!-- Hero Section -->
+        <section class="text-center max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 animated-gradient-text pb-2">Your Authorized Service Partner</h1>
+            <p class="mt-4 text-lg text-gray-600">We're your friendly, factory-authorized service center, supported by direct partnerships with the industry's biggest brands. This gives us exclusive access to technical databases and diagnostic tools, allowing us to provide you with the highest level of service.</p>
         </section>
+
+        <!-- Competitor Infographic Section -->
+        <section class="mt-20 max-w-5xl mx-auto fade-in-section">
+            <h2 class="text-3xl font-bold text-center text-gray-900">The Specialist vs. Standard Repair</h2>
+            <p class="mt-4 text-center text-lg text-gray-600">When your advanced appliance needs service, who do you trust? Our electronics-first approach is fundamentally different—and superior.</p>
+            <div class="mt-8 overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Feature</th>
+                            <th class="text-center py-3 px-4 uppercase font-semibold text-sm bg-red-700">Metro TV & Appliance (The Specialist)</th>
+                            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Standard Repair Services</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr class="border-b">
+                            <td class="text-left py-3 px-4 font-semibold">Factory Authorized Status</td>
+                            <td class="text-center py-3 px-4 bg-red-50 font-bold text-red-700">YES - Direct partnership with major brands.</td>
+                            <td class="text-center py-3 px-4">Typically Not Authorized</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left py-3 px-4 font-semibold">Core Expertise</td>
+                            <td class="text-center py-3 px-4 bg-red-50 font-bold text-red-700">Electronics-First Specialists</td>
+                            <td class="text-center py-3 px-4">General Mechanical Repair</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left py-3 px-4 font-semibold">Repair Parts</td>
+                            <td class="text-center py-3 px-4 bg-red-50 font-bold text-red-700">Guaranteed Genuine OEM Parts</td>
+                            <td class="text-center py-3 px-4">May use third-party or generic parts</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="text-left py-3 px-4 font-semibold">Warranty Integrity</td>
+                            <td class="text-center py-3 px-4 bg-red-50 font-bold text-red-700">Ensures your manufacturer's warranty is upheld.</td>
+                            <td class="text-center py-3 px-4">Risk of voiding factory warranty</td>
+                        </tr>
+                        <tr>
+                            <td class="text-left py-3 px-4 font-semibold">Technician Training</td>
+                            <td class="text-center py-3 px-4 bg-red-50 font-bold text-red-700">Direct, continuous training from manufacturers.</td>
+                            <td class="text-center py-3 px-4">General industry training</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Our Story Timeline -->
+        <section class="mt-20 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900">Our Journey Through the Years</h2>
+            <div class="mt-12 relative">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item pl-12 pb-12 fade-in-section">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold text-gray-800">1947 - A Passion for Electronics</h3>
+                    <p class="mt-2 text-gray-600">Our story begins with a passion for the latest electronics. As TVs became a household staple, our reputation for expert service grew, establishing us as Lincoln's go-to specialists.</p>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item pl-12 pb-12 fade-in-section">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold text-gray-800">1999 - The Shift to Appliances</h3>
+                    <p class="mt-2 text-gray-600">We saw the future. As microprocessors and complex circuit boards began appearing in refrigerators and washing machines, we knew our electronics expertise was more critical than ever. We expanded into appliance repair, applying our specialist knowledge to the entire home.</p>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item pl-12 fade-in-section">
+                    <div class="timeline-dot"></div>
+                    <h3 class="text-2xl font-bold text-gray-800">2010s to Present - The Partnership Advantage</h3>
+                    <p class="mt-2 text-gray-600">We solidified our role as industry leaders by forming key partnerships with <span class="font-semibold">GE, Samsung, LG, Electrolux, Sony and more</span>. These alliances grant us exclusive access to proprietary service manuals, diagnostic software, and technical databases, ensuring our authorized technicians have the information to fix your products efficiently and correctly—an advantage unavailable to most repair shops.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="mt-24 bg-white p-8 md:p-12 rounded-2xl shadow-lg fade-in-section">
+            <h2 class="text-3xl font-bold text-center text-gray-900">The Metro Difference</h2>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <!-- Feature 1 -->
+                <div>
+                    <i class="fas fa-link text-4xl text-red-600"></i>
+                    <h3 class="text-xl font-bold mt-4">Direct Partner Access</h3>
+                    <p class="mt-2 text-gray-600">Our partnerships give us unparalleled access to manufacturer data, ensuring accurate and efficient repairs.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div>
+                    <i class="fas fa-user-shield text-4xl text-red-600"></i>
+                    <h3 class="text-xl font-bold mt-4">Factory-Authorized Experts</h3>
+                    <p class="mt-2 text-gray-600">We are certified to perform repairs that uphold your warranty, using only genuine OEM parts.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div>
+                    <i class="fas fa-brain text-4xl text-red-600"></i>
+                    <h3 class="text-xl font-bold mt-4">Continuously Trained Technicians</h3>
+                    <p class="mt-2 text-gray-600">Our team stays ahead of technology with ongoing, manufacturer-direct training.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="mt-24 text-center fade-in-section">
+             <h2 class="text-3xl font-bold text-gray-900">Experience the Metro Difference</h2>
+             <p class="mt-4 text-lg text-gray-600">See our full range of services or get in touch with our team today.</p>
+             <a href="services.html" class="mt-8 inline-block bg-red-600 text-white font-bold px-10 py-4 rounded-lg hover:bg-red-700 transition-colors text-lg">
+                View Our Services
+            </a>
+        </section>
+
     </main>
 
-    <footer>
-        <p>&copy; 2025 Aaron at Nebnit. All rights reserved.</p>
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="font-bold text-lg">Metro TV & Appliance</h3>
+                    <p class="text-gray-400 mt-2">Your trusted partner in home and audio repair for over 70 years.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Quick Links</h3>
+                    <ul class="mt-2 space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Contact Us</h3>
+                    <ul class="mt-2 space-y-2 text-gray-400">
+                        <li><a href="mailto:service@metrotv-audiotech.com" class="hover:text-white">service@metrotv-audiotech.com</a></li>
+                        <li><a href="tel:402-466-9090" class="hover:text-white">(402) 466-9090</a></li>
+                        <li>1107 North Cotner Blvd, Lincoln, NE 68505</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 Metro TV & Appliance. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
 </body>
 </html>

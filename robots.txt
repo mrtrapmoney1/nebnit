@@ -1,0 +1,1 @@
+This file tells search engine crawlers which pages they are allowed to access.It's a standard and important part of SEO.User-agent: *Allow: /Sitemap: https://www.google.com/search?q=https://metrotv-audiotech.com//sitemap.xml

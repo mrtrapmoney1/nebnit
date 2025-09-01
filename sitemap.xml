@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  This file helps search engines understand the structure of your site,
+  leading to more intelligent crawling and better SEO.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://metrotv-audiotech.com/index.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/services.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/testimonials.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/blog.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/dealers.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/warranty.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://metrotv-audiotech.com/manufacturers.html</loc>
+    <lastmod>2024-08-16</lastmod>
+    <priority>0.70</priority>
+  </url>
+</urlset>
